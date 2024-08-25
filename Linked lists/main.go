@@ -26,7 +26,20 @@ func main() {
 	fmt.Printf("\nLength of Linked list is:  %d", ll.length)
 	ll.deleteAtHead()
 	ll.deleteAtTail()
+	ll.deleteAtPosition(3)
+	ll.deleteAtPosition(2)
 	ll.reverseLinkedList()
+}
+
+func (ll *Linkedlist) deleteAtPosition(position int) {
+	temp := ll.head
+	for i := 1; i < position-1; i++ {
+		temp = temp.next
+	}
+	temp.next = temp.next.next
+	fmt.Println("Updated Linked list is:")
+	ll.printList()
+
 }
 
 func (ll *Linkedlist) deleteAtHead() {
