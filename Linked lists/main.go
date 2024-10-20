@@ -26,13 +26,26 @@ func main() {
 	ll.insertAtPosition(25, 3)
 	ll.insertAtPosition(28, 4)
 	fmt.Printf("\nLength of Linked list is:  %d", ll.length)
-	ll.deleteAtHead()
-	ll.deleteAtTail()
-	ll.deleteAtPosition(3)
-	ll.head = ll.reverseLinkedList()
-	ll.head = ll.recursiveReverseLinkedList(ll.head)
+	// ll.deleteAtHead()
+	// ll.deleteAtTail()
+	// ll.deleteAtPosition(3)
+	//	ll.head = ll.reverseLinkedList()
+	//	ll.head = ll.recursiveReverseLinkedList(ll.head)
+	ll.head = ll.recursionReverseLinkedList(ll.head)
 	fmt.Println("Reversed a linked list using recursive approach:")
 	ll.printList()
+}
+
+func (ll *Linkedlist) recursionReverseLinkedList(node *Node) *Node {
+	if node == nil || node.next == nil {
+		return node
+	}
+	newHead := ll.recursionReverseLinkedList(node.next)
+	fmt.Println("New head after backtrack:", newHead)
+	fmt.Println("Node after backtrack:", node)
+	node.next.next = node
+	node.next = nil
+	return newHead
 }
 
 // Delete a node at specific position in linked list.

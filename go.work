@@ -1,0 +1,9 @@
+go 1.21.6
+
+use (
+    "./BFS and DFS"
+    "./Binary Search Tree"
+    "./Binary Search Tree2"
+    "./Linked lists"
+    "./Palindrome linked lists"
+)
