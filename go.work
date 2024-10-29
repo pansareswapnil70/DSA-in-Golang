@@ -6,4 +6,5 @@ use (
     "./Binary Search Tree2"
     "./Linked lists"
     "./Palindrome linked lists"
+	"./Convert Sorted Array to BST"
 )
