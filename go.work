@@ -7,4 +7,5 @@ use (
     "./Linked lists"
     "./Palindrome linked lists"
 	"./Convert Sorted Array to BST"
+	"./257. Binary Tree Paths"
 )
