@@ -43,10 +43,12 @@ func merge(left []int, right []int) []int {
 
 	for i < len(left) {
 		result = append(result, left[i])
+		i++
 	}
 
 	for j < len(right) {
 		result = append(result, right[j])
+		j++
 	}
 
 	return result
