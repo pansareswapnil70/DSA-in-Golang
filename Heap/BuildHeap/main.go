@@ -9,32 +9,38 @@ type minHeap struct {
 }
 
 func main() {
-	fmt.Println("Build heap from an array")
-	arr := []int{3, 1, 6, 5, 2, 4}
+	fmt.Println("Build min heap from an array")
 	minHeap := &minHeap{}
+	arr := []int{3, 1, 6, 5, 2, 4}
 	minHeap.buildHeap(arr)
-	fmt.Println("Minheap built from array", arr, " is ", minHeap.data)
+	fmt.Println("Build Heap for array:", arr)
+	minHeap.Print()
 }
 
 func (h *minHeap) buildHeap(arr []int) {
 	h.data = append([]int(nil), arr...)
-	for i := (len(h.data) / 2) - 1; i >= 0; i-- {
-		h.heapify(i)
+	for i := (len(h.data) - 2) / 2; i >= 0; i-- {
+		h.minHeapify(i)
 	}
 }
 
-func (h *minHeap) heapify(index int) {
+func (h *minHeap) minHeapify(index int) {
 	leftIndex := 2*index + 1
 	rightIndex := 2*index + 2
 	smallest := index
-	if leftIndex < len(h.data) && h.data[leftIndex] < h.data[index] {
+	if leftIndex < len(h.data) && h.data[leftIndex] < h.data[smallest] {
 		smallest = leftIndex
 	}
-	if rightIndex < len(h.data) && h.data[rightIndex] < h.data[index] {
+	if rightIndex < len(h.data) && h.data[rightIndex] < h.data[smallest] {
 		smallest = rightIndex
 	}
-	if index != smallest {
+
+	if smallest != index {
 		h.data[index], h.data[smallest] = h.data[smallest], h.data[index]
-		h.heapify(smallest)
+		h.minHeapify(smallest)
 	}
+}
+
+func (h *minHeap) Print() {
+	fmt.Println("Heap data:", h.data)
 }
