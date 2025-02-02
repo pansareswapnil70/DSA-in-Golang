@@ -21,7 +21,7 @@ type Item struct {
 type priorityQueue []Item
 
 func main() {
-	fmt.Println("Djikstra's algorithm with minHeap")
+	fmt.Println("Dijkstra's algorithm with minHeap")
 	g := newGraph()
 	g.AddEdge(0, 1, 10)
 	g.AddEdge(0, 2, 3)
@@ -31,7 +31,7 @@ func main() {
 	g.AddEdge(2, 4, 2)
 	g.AddEdge(3, 4, 7)
 	start := 0
-	distances := g.djikstraAlgo(start)
+	distances := g.DijkstraAlgo(start)
 	fmt.Println("From node: ", start)
 
 	for node, distance := range distances {
@@ -39,7 +39,7 @@ func main() {
 	}
 }
 
-func (g Graph) djikstraAlgo(start int) map[int]int {
+func (g Graph) DijkstraAlgo(start int) map[int]int {
 	dist := make(map[int]int)
 	for node := range g.adjList {
 		dist[node] = math.MaxInt64
